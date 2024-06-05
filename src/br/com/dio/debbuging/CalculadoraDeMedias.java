@@ -1,5 +1,6 @@
 package br.com.dio.debbuging;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CalculadoraDeMedias {
@@ -9,7 +10,7 @@ public class CalculadoraDeMedias {
 
         double media = calculaMediaDaTurma(alunos, scan);
 
-        System.out.printf("Média da turma %.1f", media);
+        System.out.printf("Média da turma %.1f", media); // %.1f formata o ponto flutuante para exibir uma unica casa decimal apos a virgula 
     }
 
     public static double calculaMediaDaTurma(String[] alunos, Scanner scanner) {
@@ -17,10 +18,12 @@ public class CalculadoraDeMedias {
         double soma = 0;
         for(String aluno : alunos) {
             System.out.printf("Nota do aluno %s: ", aluno);
-            double nota = scanner.nextDouble();
-            soma += nota;
+            try {double nota = scanner.nextDouble();
+                soma += nota;
+            } catch (InputMismatchException e) {
+               System.err.println("Insira numeros reais com virgula e não com ponto. Ex: 7,3");
+            }
         }
-
         return soma / alunos.length;
     }
 
