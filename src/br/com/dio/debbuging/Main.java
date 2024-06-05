@@ -1,13 +1,15 @@
 package br.com.dio.debbuging;
 
 public class Main {
+    // Por padrão o Java procura o metodo main para iniciar o programa
     public static void main(String[] args) {
         System.out.println("Iniciou do programa no método main.");
         a();
         System.out.println("Finalizou do programa no método main.");
     }
 
-    static void a() {
+    // esta por padrão em public, por isso esta omitido
+    static void a() {   
         System.out.println("Entrou no método a.");
         b();
         System.out.println("Finalizou o método a.");
@@ -22,7 +24,8 @@ public class Main {
 
     static void c(){
         System.out.println("Entrou no método c.");
-        //Thread.dumpStack();
+        // Imprime a stackTrace do metodo atual
+        Thread.dumpStack(); 
         System.out.println("Finalizou o método c.");
     }
 
