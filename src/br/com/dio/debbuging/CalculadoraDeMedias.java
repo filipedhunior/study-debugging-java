@@ -25,6 +25,7 @@ public class CalculadoraDeMedias {
             }
         }
         return soma / alunos.length;
+        // retorna uma media de soma pela quantidade de alunos
     }
 
 }
